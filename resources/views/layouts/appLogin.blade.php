@@ -15,28 +15,12 @@
         @stack('styles')
 
     </head>
-    <body class="bg-gray-100">
-        <header class="p-5 border-b bg-white shadow" style="background-color: #dd3675">
-            <div class="container mx-auto flex justify-between items-center">
-                <!--Determinar a usuario no autenticado -->
-                @guest
-                    <!--Navegacion -->
-                    <a class=" uppercase text-3xl font-black"href="">Facturas</a>
-                    <nav class="flex gap-2 item-ceter" style="color: black">
-                        <a class="font-bold uppercase text-gray-950  text-sm" href="{{route('login')}}">Login</a>
-                    </nav>
-                @endguest
-
-            </div>
-        </header>
-        <section class="w-screen flex items-center justify-center">
-            <div class=" mx-auto h-full">
+    <body class="bg-gray-100" style="background-image: url('{{asset('img/factura.jpg')}}'); background-size: cover; background-position: center;backdrop-filter: blur(5px);">
+        <section style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 @yield('contenido')
             </div>
         </section>
-        <footer class="text-center p-5 text-gray-500 font-bold uppercase">
-            Proyecto Final Unidad 2 - Todos los derechos reservados {{now()->year}}
-        </footer> 
        
     </body>
 </html>

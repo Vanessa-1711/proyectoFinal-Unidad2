@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('empresa_receptora', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('direccion');
+            $table->string('rfc')->unique();
+            $table->string('contacto');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('empresa_emisora', function (Blueprint $table) {
             $table->id();
+            $table->string('razon')->unique();
+            $table->string('correo')->unique();
+            $table->string('rfc')->unique();
             $table->timestamps();
         });
     }
