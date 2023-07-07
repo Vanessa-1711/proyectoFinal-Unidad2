@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Factura;
 class empresa_receptora extends Model
 {
     use HasFactory;
@@ -17,4 +17,8 @@ class empresa_receptora extends Model
         'contacto',
         'email',
     ];
+    //Se hacen las conexiones entre las tablas de facturas
+    public function facturas(){
+        $this->hasMany(Factura::class,'receptora_id');
+    }
 }

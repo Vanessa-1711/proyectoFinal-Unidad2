@@ -8,51 +8,45 @@ use Illuminate\Http\Request;
 class empReceptorasController extends Controller
 {
     //
-    public function index(){
-        //Redireccionando a dashboard
+    public function index()
+    {
+        // Redireccionar al dashboard
         $empresas = empresa_receptora::all();
-    
-        // Retornamos la vista 'verProductos' y pasamos los productos como una variable llamada 'productos'
+
+        // Retornar la vista 'empresas/empReceptoras' y pasar las empresas como una variable llamada 'empresas'
         return view('empresas/empReceptoras')->with('empresas', $empresas);
     }
+
     public function create()
     {
         // Lógica para mostrar el formulario de creación de una nueva empresa
         return view('empresas/formReceptora');
     }
 
-    public function store(Request $request){
-        //Modificamos el Request para que no se repitan los 'username'
-
-        //validar el formulario de registro 
-        $this->validate($request,[
-            'nombre'=> 'required',
-            'direccion'=> 'required',
-            'rfc'=> 'required|unique:empresa_receptora',
-            'contacto'=> 'required',
-            'email'=> 'required|unique:empresa_receptora',
-            
+    public function store(Request $request)
+    {
+        // Validar el formulario de registro 
+        $this->validate($request, [
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'rfc' => 'required|unique:empresa_receptora',
+            'contacto' => 'required',
+            'email' => 'required|unique:empresa_receptora',
         ]);
 
-        //Invocar el modelo User para crear el registro
+        // Invocar el modelo empresa_receptora para crear el registro
         empresa_receptora::create([
-            'nombre'=> $request->nombre,
-            'direccion'=>$request->direccion,
-            'rfc'=> $request->rfc,
-            'contacto'=> $request->contacto,
-            'email'=> $request->email,
+            'nombre' => $request->nombre,
+            'direccion' => $request->direccion,
+            'rfc' => $request->rfc,
+            'contacto' => $request->contacto,
+            'email' => $request->email,
         ]);
 
-        //Redireccionando a dashboard
+        // Redireccionar al dashboard
         $empresas = empresa_receptora::all();
-    
-        // Retornamos la vista 'verProductos' y pasamos los productos como una variable llamada 'productos'
+
+        // Retornar la vista 'empresas/empReceptoras' y pasar las empresas como una variable llamada 'empresas'
         return view('empresas/empReceptoras')->with('empresas', $empresas);
-
-
-
-        
-        
-
     }
 }

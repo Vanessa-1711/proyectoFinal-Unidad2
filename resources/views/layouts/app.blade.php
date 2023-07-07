@@ -42,13 +42,14 @@
                     <a class=" uppercase text-3xl font-black"href="">Facturas</a>
                     <nav class="flex gap-2 item-ceter" style="color: black">
                         <a class="font-bold uppercase text-gray-950  text-sm" href="{{route('login')}}">Login</a>
+                        <a class="font-bold uppercase text-gray-950  text-sm" href="{{route('portalIndex')}}">portal</a>
                     </nav>
                 @endguest
 
             </div>
         </header>
         <!--Contenido para cada una de las vistas-->
-
+        @yield('titulo2')
         <main class="container mx-auto mt-10">  <!--class="container mx-auto mt-10"-->
             <h2 class="font-black text-center text-3xl mb-10">
                 @yield('titulo')

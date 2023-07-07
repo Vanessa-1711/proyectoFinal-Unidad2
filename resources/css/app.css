@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn.btn-success {
+    background-color: #c870f0;
+    padding: 10px 20px; 
+    font-size: 16px;
+    border-radius: 5px; 
+    color: #fff; 
+
+}
+.btn.btn-success:hover {
+    background-color: #a935df; 
+}
+.btn.btn-danger{
+    background-color: #f070ee;
+    
+    padding: 10px 20px; 
+    font-size: 16px;
+    border-radius: 5px; 
+    color: #fff; 
+}
+.btn.btn-danger:hover {
+    background-color: #db48d9; 
+}
+
+.btn.btn-info{
+    background-color: #70e5f0;
+    
+    padding: 10px 20px; 
+    font-size: 16px;
+    border-radius: 5px; 
+    color: #fff; 
+}
+.btn.btn-info:hover {
+    background-color: #35dceb; 
+}
+.custom-button{
+    background-color: #c870f0 !important;
+    padding: 10px 20px; 
+    font-size: 16px;
+    border-radius: 5px; 
+    color: #fff !important; 
+}
+.custom-button:hover {
+    background-color: #a935df!important; 
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}

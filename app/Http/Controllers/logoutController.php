@@ -11,6 +11,6 @@ class logoutController extends Controller
         //Cerrar sesión con el helper auth implementando el metodo logout
         auth()->logout();
         //Enviar a la vista del login 
-        return redirect()->route('login');
+        return redirect()->route('welcome');
     }
 }

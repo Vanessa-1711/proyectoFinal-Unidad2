@@ -7,6 +7,8 @@ use App\Http\Controllers\logoutController;
 use App\Http\Controllers\empEmisorasController;
 use App\Http\Controllers\empReceptorasController;
 use App\Http\Controllers\regFacturaController;
+use App\Http\Controllers\archivosController;
+use App\Http\Controllers\portalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,7 @@ use App\Http\Controllers\regFacturaController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("welcome");
 
 
 //Ruta para login 
@@ -36,10 +38,7 @@ Route::post('/logout', [logoutController::class,'store'])->name("logout");
 
 //Ruta para la vista de empresas emisoras
 Route::get('/empEmisoras', [empEmisorasController::class,'index'])->name("empEmisoras");
-
 Route::get('/formEmisoras', [empEmisorasController::class,'create'])->name("formEmisoras");
-
-// Ruta de validación de login 
 Route::post('/formEmisoras', [empEmisorasController::class,'store']);
 
 // Ruta para la vista de empresas receptoras
@@ -47,5 +46,27 @@ Route::get('/empReceptoras', [empReceptorasController::class, 'index'])->name("e
 Route::get('/formReceptoras', [empReceptorasController::class, 'create'])->name("formReceptoras");
 Route::post('/formReceptoras', [empReceptorasController::class, 'store']);
 
+// Ruta para la vista de empresas facturas
 Route::get('/regFactura', [regFacturaController::class,'index'])->name("regFactura");
 Route::get('/formFactura', [regFacturaController::class, 'create'])->name("formFactura");
+Route::post('/formFactura', [regFacturaController::class, 'store']);
+
+//Ruta para cargar los archivos
+Route::post('/pdf',[archivosController::class,'storePDF'])->name('archivospdf');
+Route::post('/xml',[archivosController::class,'storePDF'])->name('archivospdf');
+
+//Ruta para descargar los archivos de la tabla
+Route::get('/download/{file}',[regFacturaController::class,'download'])->name('archivosDown');
+
+//Ruta para eliminar la factura
+Route::get('/eliminarFactura/{id_factura}',[regFacturaController::class, 'delete'])->name('eliminarFactura');
+
+//ruta publica para el portal
+Route::get('/Portal', [portalController::class,'index'])->name('portalIndex');
+
+//ruta para buscar lo ingresado en el portal
+Route::post('/Portal/busqueda', [portalController::class,'buscar'])->name('portalBuscar');;
+
+//ruta para buscar lo ingresado en el portal
+Route::get('/Portal/lista', [portalController::class, 'lista'])->name('portal.lista');
+

@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('folio');
+            $table->string('pdf');
+            $table->string('xml');
+
+            //agregamos la empresa receptora relacionada 
+            $table->foreignId('empresa_emisora_id')->constrained()->onDelete('cascade');;
+            //agregamos la empresa emisora relacionada 
+            $table->foreignId('empresa_receptora_id')->constrained()->onDelete('cascade');;
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('facturas');
+    }
+};
