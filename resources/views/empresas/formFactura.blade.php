@@ -96,7 +96,7 @@
             </form>
             </div>
             <div class="md:w-full px-2 py-2">
-                <form method="POST" action="{{route('archivospdf')}}" id="dropzone2" class="dropzone border-dashed border-2 w-full h-48 rounded flex flex-col justify-center items-center" novalidate>
+                <form method="POST" action="{{route('archivosxml')}}" id="dropzone2" class="dropzone border-dashed border-2 w-full h-48 rounded flex flex-col justify-center items-center" novalidate>
                     @csrf
                 </div>
             </form>

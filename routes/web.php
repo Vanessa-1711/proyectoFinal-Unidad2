@@ -53,7 +53,7 @@ Route::post('/formFactura', [regFacturaController::class, 'store']);
 
 //Ruta para cargar los archivos
 Route::post('/pdf',[archivosController::class,'storePDF'])->name('archivospdf');
-Route::post('/xml',[archivosController::class,'storePDF'])->name('archivospdf');
+Route::post('/xml',[archivosController::class,'storeXML'])->name('archivosxml');
 
 //Ruta para descargar los archivos de la tabla
 Route::get('/download/{file}',[regFacturaController::class,'download'])->name('archivosDown');
