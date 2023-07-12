@@ -7,26 +7,22 @@
     <!-- Inclusión de fuentes y estilos -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    @yield('estilos') <!-- Agrega esta línea para imprimir los estilos -->
 
     @vite ('resources/css/app.css')
     @vite ('resources/js/app.js')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>    
     
-    @yield('css')
+    
 
-   <!-- datatables CSS básico -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('datatables/datatables.min.css') }}" />
-
-    <!-- datatables estilo bootstrap 4 CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}">
 
 
     <!-- Título de la página -->
     <title>Portal - @yield('titulo')</title>
-    <!-- Inclusión del archivo CSS generado por Vite -->
     
 </head>
-<body>
+<body class="bg-gray-100">
     <!-- Sección para el título específico de cada página -->
     @yield('titulo2')
     <!-- Contenedor principal -->
@@ -74,24 +70,7 @@
     </div>
 
     @yield('js')
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="{{ asset('popper/popper.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    
-    <!-- datatables JS -->
-    <script src="{{ asset('jquery/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('datatables/datatables.min.js') }}"></script>
 
-    <!-- para usar botones en datatables JS -->  
-    <script src="{{ asset('datatables/Buttons-1.5.6/js/dataTables.buttons.min.js') }}"></script>  
-    <script src="{{ asset('datatables/JSZip-2.5.0/jszip.min.js') }}"></script>    
-    <script src="{{ asset('datatables/pdfmake-0.1.36/pdfmake.min.js') }}"></script>    
-    <script src="{{ asset('datatables/pdfmake-0.1.36/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('datatables/Buttons-1.5.6/js/buttons.html5.min.js') }}"></script>
-
-    <!-- código JS propìo-->    
-    <script src="{{ asset('main.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     
 
 </body>

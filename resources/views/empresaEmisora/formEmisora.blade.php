@@ -19,7 +19,7 @@
     </div>
     <div class="w-9/12 lg:w-4/12 bg-white p-6 rounded-lg shadow-xl">
         <!-- Formulario para registrar una empresa emisora -->
-        <form method="POST" action="" novalidate>
+        <form method="POST" action="{{route('formEmisoras') }}" novalidate>
             <!-- Directiva de seguridad -->
             @csrf
 
@@ -69,5 +69,4 @@
         </form>
     </div>
 </div>
-
 @endsection

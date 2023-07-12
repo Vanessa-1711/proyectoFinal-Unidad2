@@ -7,20 +7,27 @@ use Illuminate\Http\Request;
 
 class empReceptorasController extends Controller
 {
-    //
+    //Constructor para validar usuario autentificado
+    public function __construct()
+    {
+        // Para verificar que el user este autenticado
+        // except() es para indicar cuales metodos pueden usarse sin autenticarse
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         // Redireccionar al dashboard
         $empresas = empresa_receptora::all();
 
         // Retornar la vista 'empresas/empReceptoras' y pasar las empresas como una variable llamada 'empresas'
-        return view('empresas/empReceptoras')->with('empresas', $empresas);
+        return view('empresaReceptora.empReceptoraTabla')->with('empresas', $empresas);
     }
 
     public function create()
     {
         // Lógica para mostrar el formulario de creación de una nueva empresa
-        return view('empresas/formReceptora');
+        return view('empresaReceptora.formReceptora');
     }
 
     public function store(Request $request)
@@ -47,6 +54,28 @@ class empReceptorasController extends Controller
         $empresas = empresa_receptora::all();
 
         // Retornar la vista 'empresas/empReceptoras' y pasar las empresas como una variable llamada 'empresas'
-        return view('empresas/empReceptoras')->with('empresas', $empresas);
+        return view('empresaReceptora.empReceptoraTabla')->with('empresas', $empresas);
+    }
+
+    //eliminar empresa emisora con un id
+    public function delete($id_receptora)
+    {
+        /// Buscar la empresa emisora por su ID
+        $empresaReceptora = empresa_receptora::find($id_receptora);
+        if ($empresaReceptora->facturas()->exists()) {
+            // Obtener las facturas relacionadas
+            $facturas = $empresaReceptora->facturas;
+             // Eliminar las facturas relacionadas
+             foreach ($facturas as $factura) {
+                $factura->delete();
+            }
+        }
+
+        // Eliminar la empresa emisora
+        $empresaReceptora->delete();
+
+        // Eliminar la empresa emisora
+        $empresaReceptora->delete();
+        return back();
     }
 }

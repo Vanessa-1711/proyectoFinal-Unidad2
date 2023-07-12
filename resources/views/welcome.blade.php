@@ -18,8 +18,8 @@
             <img src="{{asset('img/5.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
         <!-- Item 3 -->
-        <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-            <img src="{{asset('img/6.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        <div class="hidden duration-200 ease-linear" data-carousel-item>
+            <img src="{{asset('img/factura.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
     </div>
     <!-- Slider controls -->
@@ -40,6 +40,39 @@
         </span>
     </button>
 </div>
+<!-- Tarjetas -->
+<div class="flex justify-center mt-8">
+        <div class="flex flex-wrap w-full max-w-6xl mx-auto">
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-white p-4 shadow rounded-lg hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <!-- Imagen -->
+                    <img src="{{asset('img/emisora.png')}}" alt="Imagen de la empresa" class="w-full h-auto mb-4">
+
+                    <!-- Texto "Empresa Emisora" -->
+                    <h3 class="text-xl font-semibold text-center">Empresa <br> Emisora</h3>
+                </div>
+            </div>
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <!-- Tarjeta 2 -->
+                <div class="bg-white p-4 shadow rounded-lg hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <img src="{{asset('img/receptora.png')}}" alt="Imagen de la empresa" class="w-full h-auto mb-4">
+
+                    <!-- Texto "Empresa Emisora" -->
+                    <h3 class="text-xl font-semibold text-center">Empresa <br> Receptora</h3>
+                </div>
+            </div>
+            <div class="w-full md:w-1/3 px-4 mb-8">
+                <!-- Tarjeta 3 -->
+                <div class="bg-white p-4 shadow rounded-lg hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                    <!-- Contenido de la tarjeta 3 -->
+                    <img src="{{asset('img/factura.png')}}" alt="Imagen de la empresa" class="w-full h-auto mb-4">
+                    <h3 class="text-xl font-semibold text-center">Facturas</h3>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
 

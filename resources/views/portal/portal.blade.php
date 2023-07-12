@@ -8,6 +8,7 @@
 @endpush
 
 @section('titulo2')
+<br>
     <!-- Título secundario de la vista -->
     <div class="bg-gradient-to-r from-purple-100 to-pink-300 p-4 text-center">
         <h2 class="text-3xl font-extrabold text-blak">Bienvenido al portal de búsqueda de Facturas</h2>
@@ -21,7 +22,7 @@
 
     @if(session('no_encontrada'))
         <!-- Mensaje de sesión si no se encontró la factura -->
-        <div class="bg-blue-200 p-2 rounded-lg mb-6 text-black text-center ">
+        <div class="bg-violet-200 p-2 rounded-lg mb-6 text-black text-center ">
             {{ session('no_encontrada') }}
         </div>
     @endif

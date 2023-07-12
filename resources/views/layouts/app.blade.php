@@ -12,19 +12,15 @@
         @vite ('resources/css/app.css')
         @vite ('resources/js/app.js')
 
-        @stack('styles')
+        @stack('estilos')
 
     </head>
     <body class="bg-gray-100">
         <!--ENCABEZADO DE LA PAGINA -->
-        <header class="p-5 border-b bg-white shadow" style="background-color: #9C5996">
+        <header class="p-5 border-b bg-white shadow" style="background-color: #af69ad;">
             <div class="container mx-auto flex justify-between items-center">
                 <!--Aplicar Helper de autenticación auth para verificar si esta autenticado -->
                 @auth 
-                    <!--Vinculo boton de publivar post-->
-                    <a class=" uppercase text-3xl font-black"href="">Facturas</a>
-
-
                     <!--Navegacion-->
                     <nav class="flex gap-2 item-ceter" style="color: black">
                         Hola: <span class="font-normal text-gray-950">{{auth()->user()->username}}</span>
@@ -39,7 +35,7 @@
                 <!--Determinar a usuario no autenticado -->
                 @guest
                     <!--Navegacion -->
-                    <a class=" uppercase text-3xl font-black"href="">Facturas</a>
+                    <a class=" uppercase text-3xl font-black"href="{{route('welcome')}}">Facturas</a>
                     <nav class="flex gap-2 item-ceter" style="color: black">
                         <a class="font-bold uppercase text-gray-950  text-sm" href="{{route('login')}}">Login</a>
                         <a class="font-bold uppercase text-gray-950  text-sm" href="{{route('portalIndex')}}">portal</a>

@@ -19,6 +19,6 @@ class empresa_receptora extends Model
     ];
     //Se hacen las conexiones entre las tablas de facturas
     public function facturas(){
-        $this->hasMany(Factura::class,'receptora_id');
+        return $this->hasMany(Factura::class,'empresa_receptora_id');
     }
 }

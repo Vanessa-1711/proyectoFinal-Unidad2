@@ -17,6 +17,6 @@ class empEmisora extends Model
 
     //Se hacen las conexiones entre las tablas de facturas
     public function facturas(){
-        $this->hasMany(Factura::class,'emisora_id');
+        return $this->hasMany(Factura::class,'empresa_emisora_id');
     }
 }

@@ -2,7 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn.btn-success {
+.card {
+    width: 200px;
+    height: 200px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+  .dt-button.buttons-excel.buttons-html5 {
+      /* Estilos personalizados para los botones de descarga */
+      background-color: #c870f0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+  }
+
+  .dt-button.buttons-excel.buttons-html5:hover {
+      /* Estilos para el estado hover de los botones de descarga */
+      background-color: #a935df;
+  }
+
+  .dt-button.buttons-pdf.buttons-html5 {
+      /* Estilos personalizados para el botón de descarga de PDF */
+      background-color: #f070ee;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+  }
+
+  .dt-button.buttons-pdf.buttons-html5:hover {
+      /* Estilos para el estado hover del botón de descarga de PDF */
+      background-color: #db48d9;
+  }
+
+  .dt-button.buttons-print {
+    background-color: #70e5f0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .dt-button.buttons-print:hover {
+    background-color: #35dceb !important;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+      /* Estilos personalizados para el input de búsqueda */
+      border-radius: 20px !important;
+      margin-left: 10px !important;
+      outline-offset: 0px !important;
+      /* Agrega aquí tus estilos adicionales */
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      border-radius: 50px !important;
+  }
+  .btn.btn-success {
     background-color: #c870f0;
     padding: 10px 20px; 
     font-size: 16px;
@@ -47,19 +133,3 @@
     background-color: #a935df!important; 
 }
 
-.card {
-    width: 200px;
-    height: 200px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}

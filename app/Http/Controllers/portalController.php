@@ -46,8 +46,8 @@ class portalController extends Controller
 
         if ($receptora) {
             // Agrega la empresa emisora y receptora como condiciones de consulta
-            $query = Factura::where('emisora_id', $request->emisora_id)
-                ->where('receptora_id', $request->receptora_id);
+            $query = Factura::where('empresa_emisora_id', $request->emisora_id)
+                ->where('empresa_receptora_id', $request->receptora_id);
 
             // Si el folio está lleno, lo agrega como condición
             if ($request->filled('folio')) {
@@ -59,7 +59,7 @@ class portalController extends Controller
 
             // Si se encontraron facturas, redirige al listado
             if ($facturas->count() > 0) {
-                return redirect()->route('portal.lista')->with('facturas', $facturas);
+                return redirect()->route('portalTabla')->with('facturas', $facturas);
             } else {
                 // Si no se encontraron facturas en la base de datos, muestra un mensaje
                 return redirect()->route('portalIndex')->with('no_encontrada', 'Los datos ingresados no corresponden a ninguna factura.');
@@ -68,5 +68,11 @@ class portalController extends Controller
             // Si el RFC y el nombre de la empresa receptora no coinciden, muestra un mensaje
             return redirect()->route('portalIndex')->with('no_encontrada', 'El RFC no coincide con la empresa receptora seleccionada.');
         }
+    }
+
+    public function download($file)
+    {
+        $pathFile = public_path('uploads') . '/' . $file;
+        return response()->download($pathFile);
     }
 }

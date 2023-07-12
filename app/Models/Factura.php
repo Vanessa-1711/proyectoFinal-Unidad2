@@ -13,16 +13,16 @@ class Factura extends Model
         'folio',
         'pdf',
         'xml',
-        'emisora_id',
-        'receptora_id'
+        'empresa_emisora_id',
+        'empresa_receptora_id'
     ];
 
     //relacion de id con empresa emisora
     public function emisora(){
-        return $this->belongsTo(empEmisora::class,'emisora_id');
+        return $this->belongsTo(empEmisora::class,'empresa_emisora_id');
     }
     //relacion de id con empresa receptora
     public function receptora(){
-        return $this->belongsTo(empresa_receptora::class,'receptora_id');
+        return $this->belongsTo(empresa_receptora::class,'empresa_receptora_id');
     }
 }

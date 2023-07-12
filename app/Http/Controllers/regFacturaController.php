@@ -9,13 +9,20 @@ use App\Models\Factura;
 
 class regFacturaController extends Controller
 {
-    //
+    //Constructor para validar usuario autentificado
+    public function __construct()
+    {
+        // Para verificar que el user este autenticado
+        // except() es para indicar cuales metodos pueden usarse sin autenticarse
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $facturas = Factura::with('emisora', 'receptora')->get();
 
         // Retornamos la vista 'empresas.regFacturas' y pasamos las facturas como una variable llamada 'facturas'
-        return view('empresas.regFacturas')->with('facturas', $facturas);
+        return view('facturas.facturasTabla')->with('facturas', $facturas);
     }
 
     public function create()
@@ -23,7 +30,7 @@ class regFacturaController extends Controller
         $emisoras = empEmisora::all();
         $receptoras = empresa_receptora::all();
         // Retornar la vista para crear facturas y pasar las empresas emisoras y receptoras como variables
-        return view('empresas.formFactura', compact('emisoras', 'receptoras'));
+        return view('facturas.formFactura', compact('emisoras', 'receptoras'));
     }
 
     public function store(Request $request)
@@ -37,8 +44,8 @@ class regFacturaController extends Controller
         ]);
 
         Factura::create([
-            'emisora_id' => $request->emisora_id,
-            'receptora_id' => $request->receptora_id,
+            'empresa_emisora_id' => $request->emisora_id,
+            'empresa_receptora_id' => $request->receptora_id,
             'folio' => $request->folio,
             'pdf' => $request->pdf,
             'xml' => $request->xml,
@@ -46,7 +53,7 @@ class regFacturaController extends Controller
 
         // Redireccionando a la vista 'empresas.regFacturas' y pasando todas las facturas como variable
         $facturas = Factura::all();
-        return view('empresas.regFacturas')->with('facturas', $facturas);
+        return view('facturas.facturasTabla')->with('facturas', $facturas);
     }
 
     public function download($file)
