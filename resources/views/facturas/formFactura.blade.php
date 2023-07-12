@@ -84,7 +84,7 @@
                 </div>
 
                 <!-- Botón para enviar los datos -->
-                <input type="submit" value="Guardar Datos" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+                <input type="submit" value="Guardar Datos" class="guardar bg-violet-500 hover:bg-violet-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
             </form>
         </div>
 
